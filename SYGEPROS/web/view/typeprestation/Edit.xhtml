@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTypeprestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTypeprestationLabel_idtypeprestation}" for="idtypeprestation" />
+                    <h:inputText id="idtypeprestation" value="#{typeprestationController.selected.idtypeprestation}" title="#{bundle.EditTypeprestationTitle_idtypeprestation}" />
+                    <h:outputLabel value="#{bundle.EditTypeprestationLabel_nomprestation}" for="nomprestation" />
+                    <h:inputText id="nomprestation" value="#{typeprestationController.selected.nomprestation}" title="#{bundle.EditTypeprestationTitle_nomprestation}" required="true" requiredMessage="#{bundle.EditTypeprestationRequiredMessage_nomprestation}"/>
+                    <h:outputLabel value="#{bundle.EditTypeprestationLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{typeprestationController.selected.description}" title="#{bundle.EditTypeprestationTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{typeprestationController.update}" value="#{bundle.EditTypeprestationSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTypeprestationViewLink}"/>
+                <br />
+                <h:commandLink action="#{typeprestationController.prepareList}" value="#{bundle.EditTypeprestationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTypeprestationIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
